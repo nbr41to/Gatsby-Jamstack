@@ -1,14 +1,13 @@
 import React from "react"
-import { Link ,graphql } from "gatsby"
-// GraphQLインポートしてないよ
-
+import { Link, graphql } from "gatsby"
+import "./style.css"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = ({ data }) => (
+const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Home" />
-    <h1>Markdown Pages</h1>
+    <h2>下線ください！</h2>
     {data.allMarkdownRemark.edges.map(({ node }) => (
       <article key={node.frontmatter.slug}>
         <h2>
@@ -24,6 +23,8 @@ const IndexPage = ({ data }) => (
     <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
   </Layout>
 )
+
+export default IndexPage
 
 export const query = graphql`
   query {
@@ -41,5 +42,3 @@ export const query = graphql`
     }
   }
 `
-
-export default IndexPage
